@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import SongController from '../SongController/SongController';
 import SongDisplay from '../SongDisplay/SongDisplay';
+import SongForm from '../SongForm/SongForm';
 
 class App extends Component {
   constructor() {
@@ -42,6 +43,7 @@ class App extends Component {
         </header>
         <div className="App-background">
           <main>
+            <SongForm />
             <SongDisplay
               song={this.state.currentSong}
             />
