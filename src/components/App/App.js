@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import SongController from '../SongController/SongController';
+import SongDisplay from '../SongDisplay/SongDisplay';
 
 const url = 'http://localhost:8080';
 
