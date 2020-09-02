@@ -12,6 +12,11 @@ class App extends Component {
     }
   }
 
+  getSongs(url) {
+    fetch(url)
+      .then(response => response.json())
+      .then(songs => this.setState({songQueue: songs}))
+  }
 
   render() {
     return (
@@ -21,6 +26,7 @@ class App extends Component {
         </header>
         <div className="App-background">
           <main>
+            <SongController />
           </main>
         </div>
       </div>
