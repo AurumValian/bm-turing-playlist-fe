@@ -38,7 +38,7 @@ class SongForm extends Component {
   render() {
     return (
       <form>
-        <h3>Add Song</h3>
+        <h3>Add New Song</h3>
         <input
           type="text"
           className="title-input"
