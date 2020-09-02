@@ -12,9 +12,11 @@ describe('SongForm', () => {
     const titleInput = screen.getByPlaceholderText('Title');
     const artistInput = screen.getByPlaceholderText('Artist');
     const linkInput = screen.getByPlaceholderText('Link');
+    const addSongButton = screen.getByRole('button');
 
     expect(titleInput).toBeInTheDocument();
     expect(artistInput).toBeInTheDocument();
     expect(linkInput).toBeInTheDocument();
+    expect(addSongButton).toBeInTheDocument();
   })
 })
