@@ -14,6 +14,7 @@ class App extends Component {
     }
 
     this.showNextSong = this.showNextSong.bind(this);
+    this.addNewSong = this.addNewSong.bind(this);
   }
 
   componentDidMount() {
@@ -35,6 +36,12 @@ class App extends Component {
     })
   }
 
+  addNewSong(songObject) {
+    const newSongQueue = this.state.songQueue.slice();
+    newSongQueue.push(songObject);
+    this.setState({songQueue: newSongQueue})
+  }
+
   render() {
     return (
       <div className="App">
@@ -43,7 +50,9 @@ class App extends Component {
         </header>
         <div className="App-background">
           <main>
-            <SongForm />
+            <SongForm
+              addNewSong={this.addNewSong}
+            />
             <SongDisplay
               song={this.state.currentSong}
             />
