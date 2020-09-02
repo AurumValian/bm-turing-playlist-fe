@@ -3,24 +3,35 @@ import './App.css';
 import SongController from '../SongController/SongController';
 import SongDisplay from '../SongDisplay/SongDisplay';
 
-const url = 'http://localhost:8080';
-
 class App extends Component {
   constructor() {
     super();
     this.state = {
       songQueue: [],
+      currentSongIndex: 0,
       currentSong: {}
     }
+
+    this.showNextSong = this.showNextSong.bind(this);
+  }
+
+  componentDidMount() {
+    this.getSongs('http://localhost:8080/api/v1/playlist')
   }
 
   getSongs(url) {
     fetch(url)
       .then(response => response.json())
-      .then(songs => this.setState({songQueue: songs}))
+      .then(songs => this.setState({songQueue: songs, currentSong: songs[0]}))
   }
 
-  getRandomSong
+  showNextSong() {
+    this.setState({
+      currentSongIndex: this.state.currentSongIndex + 1 === this.state.songQueue.length ?
+      this.state.currentSongIndex + 1 : 0
+    })
+    this.setState({currentSong: this.state.songQueue[this.state.currentSong]})
+  }
 
   render() {
     return (
@@ -30,7 +41,9 @@ class App extends Component {
         </header>
         <div className="App-background">
           <main>
-            <SongDisplay />
+            <SongDisplay
+              currentSong={this.state.currentSong}
+            />
             <SongController />
           </main>
         </div>
