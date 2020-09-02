@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import SongController from '../SongController/SongController';
 
+const url = 'http://localhost:8080';
+
 class App extends Component {
   constructor() {
     super();
@@ -20,7 +22,7 @@ class App extends Component {
         <div className="App-background">
           <main>
           </main>
-        </div> 
+        </div>
       </div>
     )
   }
