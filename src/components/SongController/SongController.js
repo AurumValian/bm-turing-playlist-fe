@@ -1,10 +1,10 @@
 import React from 'react';
 
-const SongController = ( { changeSong } ) => {
-  
+const SongController = ( { showNextSong } ) => {
+
   return (
     <div>
-      <button>Next Song</button>
+      <button onClick={showNextSong}>Next Song</button>
     </div>
   );
 };

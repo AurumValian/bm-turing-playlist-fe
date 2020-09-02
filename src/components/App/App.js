@@ -26,11 +26,15 @@ class App extends Component {
   }
 
   showNextSong() {
+    console.log(this.state.currentSong)
+    const counter = this.state.currentSongIndex + 1
+    // (this.state.currentSongIndex + 1 === this.state.songQueue.length) ?
+    // this.state.currentSongIndex + 1 : 0
+    console.log(counter);
     this.setState({
-      currentSongIndex: this.state.currentSongIndex + 1 === this.state.songQueue.length ?
-      this.state.currentSongIndex + 1 : 0
+      currentSongIndex: counter,
+      currentSong: this.state.songQueue[counter]
     })
-    this.setState({currentSong: this.state.songQueue[this.state.currentSong]})
   }
 
   render() {
@@ -42,9 +46,11 @@ class App extends Component {
         <div className="App-background">
           <main>
             <SongDisplay
-              currentSong={this.state.currentSong}
+              song={this.state.currentSong}
             />
-            <SongController />
+            <SongController
+              showNextSong={this.showNextSong}
+             />
           </main>
         </div>
       </div>
