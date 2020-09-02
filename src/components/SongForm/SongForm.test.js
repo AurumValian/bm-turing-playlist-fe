@@ -1,5 +1,5 @@
 import React from 'react';
-import { screen, render } from '@testing-library/react';
+import { screen, render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import SongForm from './SongForm';
 
@@ -18,5 +18,16 @@ describe('SongForm', () => {
     expect(artistInput).toBeInTheDocument();
     expect(linkInput).toBeInTheDocument();
     expect(addSongButton).toBeInTheDocument();
+  })
+
+  it('should be able to change the value of an input field', () => {
+    render (
+      <SongForm />
+    )
+
+    const titleValue = screen.getByPlaceholderText('Title');
+    fireEvent.change(titleValue, { target: { value: 'Django'}});
+
+    expect(titleValue.value).toBe('Django');
   })
 })

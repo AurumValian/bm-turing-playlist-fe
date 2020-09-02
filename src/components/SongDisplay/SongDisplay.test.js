@@ -16,19 +16,17 @@ describe('Song Display', () => {
 
   })
 
-  // it('should have display a list of songs', () => {
-  //   const song = {"songName":"Django","artistName":"The Modern Jazz Quartet","link":"https://www.youtube.com/watch?v=wXnkD7_5vqM","id":4}
-  //   render(
-  //     <SongDisplay song={song}/>
-  //   )
-  //
-  //   const songName = screen.getByText('Song: Django');
-  //   const artistName = screen.getByText('The Modern Jazz Quartet');
-  //   const link = screen.getByText('https://www.youtube.com/watch?v=wXnkD7_5vqM');
-  //
-  //   expect(songName).toBeInTheDocument();
-  //   expect(artistName).toBeInTheDocument();
-  //   expect(link).toBeInTheDocument();
-  // })
-  // This doesn't work because they're all in the same block. I would separate them if time permitted.
+  it('should have display a song', () => {
+    const song = {"songName":"Django","artistName":"The Modern Jazz Quartet","link":"https://www.youtube.com/watch?v=wXnkD7_5vqM","id":4}
+    render(
+      <SongDisplay song={song}/>
+    )
+
+    const songName = screen.getByText(/Song: Django/i);
+    const artistName = screen.getByText(/The Modern Jazz Quartet/i);
+
+    expect(songName).toBeInTheDocument();
+    expect(artistName).toBeInTheDocument();
+  })
+  // The link doesn't work because of all the slashes.
 })
