@@ -52,6 +52,7 @@ class App extends Component {
           <main>
             <SongForm
               addNewSong={this.addNewSong}
+              songQueue={this.state.songQueue}
             />
             <SongDisplay
               song={this.state.currentSong}

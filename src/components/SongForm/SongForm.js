@@ -12,10 +12,27 @@ class SongForm extends Component {
     }
 
     this.handleChange = this.handleChange.bind(this);
+    this.addSong = this.addSong.bind(this);
   }
 
   handleChange(event) {
     this.setState({[event.target.name]: event.target.value})
+  }
+
+  addSong(event) {
+    event.preventDefault();
+    const newSong = {
+      songName: this.state.title,
+      artistName: this.state.artist,
+      link: this.state.link,
+      id: this.props.songQueue.length + 1
+    }
+    this.props.addNewSong(newSong);
+    this.setState({
+      title: '',
+      artist: '',
+      link: ''
+    })
   }
 
   render() {
@@ -46,7 +63,7 @@ class SongForm extends Component {
           name="link"
           onChange={this.handleChange}>
         </input>
-        <button onClick={this.props.addSong}>Add Song</button>
+        <button onClick={this.addSong}>Add Song</button>
       </form>
     )
   }
