@@ -26,11 +26,8 @@ class App extends Component {
   }
 
   showNextSong() {
-    console.log(this.state.currentSong)
-    const counter = this.state.currentSongIndex + 1
-    // (this.state.currentSongIndex + 1 === this.state.songQueue.length) ?
-    // this.state.currentSongIndex + 1 : 0
-    console.log(counter);
+    const counter = (this.state.currentSongIndex + 1 === this.state.songQueue.length) ?
+    0 : this.state.currentSongIndex + 1
     this.setState({
       currentSongIndex: counter,
       currentSong: this.state.songQueue[counter]
