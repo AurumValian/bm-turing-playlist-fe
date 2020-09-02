@@ -9,7 +9,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      songQueue: []
+      songQueue: [],
+      currentSong: {}
     }
   }
 
@@ -19,6 +20,8 @@ class App extends Component {
       .then(songs => this.setState({songQueue: songs}))
   }
 
+  getRandomSong
+
   render() {
     return (
       <div className="App">
@@ -27,6 +30,7 @@ class App extends Component {
         </header>
         <div className="App-background">
           <main>
+            <SongDisplay />
             <SongController />
           </main>
         </div>
