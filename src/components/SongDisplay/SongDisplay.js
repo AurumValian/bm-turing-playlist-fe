@@ -4,7 +4,7 @@ import './SongDisplay.css';
 function SongDisplay(props) {
   return (
     <section className="song-display">
-      Current Song <br />
+      <h3>Current Song</h3>
       Song: {props.song.songName}<br />
       Artist: {props.song.artistName} <br />
       Link: {props.song.link}
